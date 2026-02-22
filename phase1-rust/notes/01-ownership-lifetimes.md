@@ -25,20 +25,28 @@ So at compile time, Rust decides if variables should be pushed onto the stack or
 Rust uses a borrowing mechanism to access data without direct ownership of it. Instead of passing objects by value like JavaScript does, objects can be passed by reference by using the & operator
 
 `let message = String::from("Hello"); // message owns this string
+
 let greeting = message; // ownership moves to greeting
+
 // println!("{}", message); // ❌ Error: message has been moved`
 
 The message variable owns the value String::from("Hello) which is stored on the Heap. The Heap has a pointer telling the compiler where this value is located. In the second line, the ownership is transferred from the variable message to a new variable called greeting. In the third line, we have an error that signifies the mechanism of ownership
 
 `// This is different from JavaScript where:
+
 // let message = "Hello";
 // let greeting = message; // Creates a copy/reference
+
 // console.log(message); // ✅ Works fine in JS`
 
-`// Now let's look at borrowing
-let original = String::from("Hello");
+// Now let's look at borrowing
+
+`let original = String::from("Hello");
+
 let borrowed = &original; // Immutable borrow with &
+
 println!("{}", borrowed); // Prints: Hello
+
 println!("{}", original); // ✅ Still works! original maintains ownership`
 
 If we wanted to log out both the original and borrowed variables successfully and for same logging, we would need to use the & operator. This does not transfer ownership of the value defined originally, but merely allows the borrowed variable to do exactly what the borrowing mechanism is, to borrow the value. The original variable still owns the string however!
@@ -49,7 +57,9 @@ We use the mut keyword
 
 
 `let mut value = String::from("Hello");
+
 let mut_borrow = &mut value; // Mutable borrow with &mut
+
 mut_borrow.push_str(" World"); // Modify through mutable reference`
 
 By using the mut keyword, we are essentially allowing the borrower to be able to mutate the original value. So now, if we wanted to log out value, it would output "Hello World"
