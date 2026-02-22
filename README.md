@@ -79,6 +79,3 @@ Each phase contains:
 ## ⚠️ Ethics
 
 Security code is **educational only**. Run in isolated labs. Never use against systems I don't own. Studying offense to build better defense.
-
----# systems-depth
-# systems-depth
