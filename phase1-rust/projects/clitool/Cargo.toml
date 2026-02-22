@@ -1,0 +1,13 @@
+[package]
+name = "clitool"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "clitool"
+path = "main.rs"
+
+[lib]
+path = "lib.rs"
