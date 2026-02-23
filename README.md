@@ -16,15 +16,6 @@ Not learning frameworks. Learning what's underneath.
 
 ---
 
-## 📁 Structure
-systems-depth/
-├── phase1-rust/ # Months 1-4: Rust mastery & systems programming
-├── phase2-os/ # Months 5-7: OS internals (Linux/Windows)
-├── phase3-networks/ # Months 8-9: Networks & low-level comms
-├── phase4-security/ # Months 10-12: Security engineering
-└── blog-posts/ # Published writing
-
-
 Each phase contains:
 - `/notes/` - Concepts I'm learning
 - `/projects/` - Working code with READMEs
