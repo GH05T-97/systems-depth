@@ -76,3 +76,72 @@ fn largest<T: PartialOrd>(list: &[T]) -> &T {...}
 
 ```
 ### Error Handling
+
+Rust has 2 groups of errors
+
+1) Recoverable - for eg: file not found error, we most likely just want to report the problem to the user and retry the operation
+2) Uncrecoverable - always symptoms of bugs, such as trying to access a location beyond the end of an array, and so we want to immediately stop the program
+
+If you program fails in a manner that is unrecoverable, you can call the panic macro
+
+```rust
+fn run(){
+    panic!("Error running this operation!")
+}
+```
+For errors that are recoverable, we can use the Result enum - which represents a success in an operation and a failure in an operation
+
+```rust
+use std::fs::File;
+
+fn run(){
+    let f: Result<File, Error> = File::open("hello_world.txt");
+    let f: File = match f {
+        Ok((file)) => File,
+        Err(error) => panic("Error opening file!: {;?}", e)
+}
+```
+
+In the above example, we have the open operation from the File component imported from the std library. The variable f has a Result enum that is returned, within the enum - we can either return a File in a successful operation or an Error if it fails, the code snippet below showcases how we can handle successful and failures using the match keyword in Rust.
+
+If we wanted to be more precise and handle errors more gracefully, and be more specific in our scenarios, we can use the ErrorKind component from the std library
+
+```rust
+use std::fs::File;
+use std::io::ErrorKind
+
+fn run(){
+    let f: Result<File, Error> = File::open("hello_world.txt");
+    let f: File = match f {
+        Ok((file)) => File,
+        Err(error) => match error.kind() {
+            ErrorKind.NotFound => match File::create("hello_world.txt") {
+                Ok(fc: File) => fc,
+                Error(e: Error) => panic!("Problem creating the file!: {;?}", e)
+            },
+            other_error => {
+                panic!("Problem opening the file!")
+            }
+        }
+    }
+}
+```
+
+In the above code snippet - we are importing ErrorKind, and handling 2 edge cases, one if the file hello_world.txt is not found in our directory, the program attempts to create it, if that operation fails, then we have the panic operation. Because match statements are exhaustive on their own, we need to include other scenarios - which is represneted by the other_error edge case.
+
+To make our code more concise - we can use the ? operator, which is incredibly useful for Error Propagation
+
+```rust
+fn run() -> Result<String, Error>{
+        let mut f = File::open("hello_world.txt")?;
+        let mut s = String::new();
+        f.read_to_string(&mut s)?;
+        Ok(s);
+    }
+}
+```
+
+On the above code snippet on the first line - we are using the ? operator when we attempt to open the text file of interest and also reading it to a string format, this essentially allows error handling without writing long match statements and helps us from not even writing panic statements. Saves us time in the end.
+
+As a general rule of thumb - we should be using the Result enum and ? operator for error propagation to prevent our program from crashing
+
