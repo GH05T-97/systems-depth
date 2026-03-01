@@ -1,6 +1,6 @@
 # Systems Depth Engineering
 
-A 12-month journey from cloud engineer to elite systems engineer.
+A 12-month journey from software engineer to elite systems & security engineer.
 
 ---
 
@@ -8,9 +8,9 @@ A 12-month journey from cloud engineer to elite systems engineer.
 
 Build deep expertise in:
 - **Rust systems programming** (memory, unsafe, FFI, concurrency)
-- **OS internals** (Linux & Windows: processes, memory, syscalls)
-- **Networking** (packets to protocols: TCP/IP, raw sockets)
-- **Security** (exploitation, injection, detection, defense)
+- **Application Security** Authentication logic attacks, SSRF chaining, secure coding practices, etc
+- **Cloud Security** IAM architecture design, EKS Security, Logging, Detection
+- **Threat Modelling** Attack surface mapping, risk assessment, etc
 
 Not learning frameworks. Learning what's underneath.
 
@@ -22,31 +22,23 @@ Each phase contains:
 
 ---
 
-## 🗺️ Roadmap
-
-| Phase | Focus | Projects |
-|-------|-------|----------|
-| 1 | Rust depth | CLI tool, FFI bindings, custom allocator, network service |
-| 2 | OS internals | System info tool, process monitor, PE/ELF parser |
-| 3 | Networking | Packet sniffer, recon tool, epoll wrapper |
-| 4 | Security | Exploit lab, injection suite, EDR simulator, C2 framework, detection tool |
 
 ---
 
 ## 🚀 Current Status
 
 **Phase:** 1 (Rust Mastery)
-**Started:** [Date]
-**Progress:** ▱▱▱▱▱▱▱▱▱▱ 0%
+**Started:** 23/02/2026
 
-**Milestones:**
-- [ ] Rustlings complete
-- [ ] "The Rust Book" done
-- [ ] "Rust for Rustaceans" done
-- [ ] Project 1 complete
-- [ ] Project 2 complete
-- [ ] Project 3 complete
-- [ ] Project 4 complete
+**Phase:** 2 (Application Security)
+**Started:** TBA
+
+**Phase:** 3 (Cloud Security)
+**Started:** TBA
+
+**Phase:** 4 (Threat Modelling)
+**Started:** TBA
+
 
 ---
 
@@ -55,10 +47,8 @@ Each phase contains:
 **Books:**
 - The Rust Programming Language
 - Rust for Rustaceans
-- Linux Kernel Development (Love)
-- Windows Internals (Yosifovich)
-- TCP/IP Illustrated (Stevens)
-- Hacking: The Art of Exploitation
+- 
+I'll put more resources as I progress
 
 **Communities:**
 - Rust Discord (#systems-programming)
